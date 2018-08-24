@@ -13,13 +13,25 @@
 #include "main.h"
 #include "chassis.h"
 
+#define BOTTOM_MOTOR 4
+#define MIDDLE_MOTOR 5
+#define CLAW_MOTOR 6
+
 void operatorControl() {
 	while (1) {
 		int power, turn;
-		while (1) {
-		  power = joystickGetAnalog(2, 2); // vertical axis on right joystick
-		  turn  = joystickGetAnalog(1, 1); // horizontal axis on left joystick
-		  chassisSet(power + turn, power - turn);
+	  power = joystickGetAnalog(2, 2); // vertical axis on right joystick
+	  turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
+	  chassisSet(power + turn, power - turn);
+
+		if(joystickGetDigital(1, 5, JOY_UP)){ // if button 5U is pressed, raise forearm
+			motorSet(MIDDLE_MOTOR, 127);
+		}
+		else if(joystickGetDigital(1, 5, JOY_DOWN)){ // if button 5D is pressed, lower forearm
+			motorSet(MIDDLE_MOTOR, -127);
+		}
+		else{
+			motorSet(MIDDLE_MOTOR, 0);
 		}
 	}
 }
