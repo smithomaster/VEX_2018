@@ -24,6 +24,8 @@
 
 // This prevents multiple inclusion, which isn't bad for this file but is good practice
 #define MAIN_H_
+#define LEFT_FRONT 3
+#define RIGHT_FRONT 8
 
 #include <API.h>
 

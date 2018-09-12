@@ -1,10 +1,9 @@
-#ifndef _CHASSIS_H_
 #define _CHASSIS_H_
+
 #include "main.h"
 
-void chassisSet(int left, int right) {
-  motorSet(1, left);
-  motorSet(10, right);
+// Sets the speeds of the left and right wheels of the chassis
+void backChassis(int rightBack, int leftBack){
+  motorSet(1, leftBack);
+  motorSet(10, rightBack);
 }
-
-#endif

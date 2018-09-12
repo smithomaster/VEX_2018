@@ -11,6 +11,8 @@
  */
 
 #include "main.h"
+#define LEFT_FRONT 3
+#define RIGHT_FRONT 8
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
